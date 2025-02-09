@@ -11,6 +11,9 @@
 		95D512762D582A5C00C7BD66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D512752D582A5C00C7BD66 /* ContentView.swift */; };
 		95D512782D582A5D00C7BD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D512772D582A5D00C7BD66 /* Assets.xcassets */; };
 		95D5127B2D582A5D00C7BD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D5127A2D582A5D00C7BD66 /* Preview Assets.xcassets */; };
+		95D512A22D5856A000C7BD66 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95D5129F2D58569E00C7BD66 /* OFL.txt */; };
+		95D512A32D5856A000C7BD66 /* Tangerine-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95D512A02D58569F00C7BD66 /* Tangerine-Bold.ttf */; };
+		95D512A42D5856A000C7BD66 /* Tangerine-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95D512A12D5856A000C7BD66 /* Tangerine-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,10 @@
 		95D512752D582A5C00C7BD66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		95D512772D582A5D00C7BD66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D5127A2D582A5D00C7BD66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		95D5129F2D58569E00C7BD66 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		95D512A02D58569F00C7BD66 /* Tangerine-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tangerine-Bold.ttf"; sourceTree = "<group>"; };
+		95D512A12D5856A000C7BD66 /* Tangerine-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tangerine-Regular.ttf"; sourceTree = "<group>"; };
+		95D512A52D58575100C7BD66 /* LabTest-01-Solution-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LabTest-01-Solution-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,8 @@
 		95D512722D582A5B00C7BD66 /* LabTest_01_Solution */ = {
 			isa = PBXGroup;
 			children = (
+				95D512A52D58575100C7BD66 /* LabTest-01-Solution-Info.plist */,
+				95D5129E2D58565F00C7BD66 /* Font */,
 				95D512732D582A5C00C7BD66 /* LabTest_01_SolutionApp.swift */,
 				95D512752D582A5C00C7BD66 /* ContentView.swift */,
 				95D512772D582A5D00C7BD66 /* Assets.xcassets */,
@@ -65,6 +74,16 @@
 				95D5127A2D582A5D00C7BD66 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		95D5129E2D58565F00C7BD66 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				95D5129F2D58569E00C7BD66 /* OFL.txt */,
+				95D512A02D58569F00C7BD66 /* Tangerine-Bold.ttf */,
+				95D512A12D5856A000C7BD66 /* Tangerine-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +144,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D512A22D5856A000C7BD66 /* OFL.txt in Resources */,
+				95D512A32D5856A000C7BD66 /* Tangerine-Bold.ttf in Resources */,
 				95D5127B2D582A5D00C7BD66 /* Preview Assets.xcassets in Resources */,
 				95D512782D582A5D00C7BD66 /* Assets.xcassets in Resources */,
+				95D512A42D5856A000C7BD66 /* Tangerine-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +296,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LabTest_01_Solution/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LabTest-01-Solution-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +326,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LabTest_01_Solution/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LabTest-01-Solution-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

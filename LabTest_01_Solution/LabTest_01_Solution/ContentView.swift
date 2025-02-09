@@ -20,17 +20,25 @@ struct ContentView: View {
         
         VStack{
             Text("\(num)")
-                .font(.system(size:89, weight:.bold))
+                //.font(.system(size:89, weight:.bold))
+                .font(Font.custom("Tangerine-Bold", size:200))
                 .padding()
+                //Spacer()
             Button(action:{buttonClicked(primeSelected:true) }){
                 Text("Prime")
-                    .font(.system(size:40))
+                    //.font(.system(size:40))
+                    .font(Font.custom("Tangerine-Bold", size:100))
+                    .padding(.bottom, 100)
+                
             }
             //Spacer()
             //padding()
             
             Button(action:{buttonClicked(primeSelected:false) }){
                 Text("non Prime")
+                    //.font(.system(size:40))
+                    .font(Font.custom("Tangerine-Bold", size:100))
+                    .padding(.bottom,60)
             }
         }
         
