@@ -95,6 +95,15 @@ struct ContentView: View {
         lastNumberTime = Date()
     }
 
+    // timer-start function - updates number every 5 seconds
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
+            checkMissedAnswer()
+            generateNewNumber()
+        }
+        generateNewNumber() // Generate the first number immediately
+    }
+
 
 
 }
