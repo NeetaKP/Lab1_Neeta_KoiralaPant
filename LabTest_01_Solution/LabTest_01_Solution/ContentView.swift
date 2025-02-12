@@ -87,6 +87,13 @@ struct ContentView: View {
         }
     }
 
+    // Generate a new random number
+    func generateNewNumber() {
+        currentNumber = Int.random(in: 1...100)
+        lastNumberTime = Date()
+    }
+
+
 
 }
 
