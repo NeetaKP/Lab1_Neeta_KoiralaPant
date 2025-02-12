@@ -114,7 +114,10 @@ struct ContentView: View {
         }
     }
 
+    // Function to reset the app
+    func resetApp() {
 
+    }
 
 }
 
