@@ -63,6 +63,23 @@ struct ContentView: View {
         return true
     }
 
+    // function to check user's answer/response and update data
+    func checkAnswer(isPrime userAnswer: Bool) {
+        let correctAnswer = isPrime(currentNumber)
+
+        if userAnswer == correctAnswer {
+            resultMessage = "✅ Correct"
+            correctAnswers += 1
+        } else {
+            resultMessage = "❌ Wrong"
+            wrongAnswers += 1
+        }
+
+        attempts += 1
+        checkEndGame()
+        generateNewNumber()
+    }
+
 
 }
 
