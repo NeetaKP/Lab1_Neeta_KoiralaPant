@@ -25,6 +25,29 @@ struct ContentView: View {
                 .font(Font.custom("Tangerine-Bold", size:130))
                 .padding(60)
 
+            VStack {
+                Button(action: {
+                    checkAnswer(isPrime: true)
+                }) {
+                    Text("Prime")
+                        .font(Font.custom("Tangerine-Bold",size:70))
+                        .font(.title)
+
+                }
+                .padding(.bottom,80)
+                
+                Button(action: {
+                    checkAnswer(isPrime: false)
+                }) {
+                    Text("Not Prime")
+                        .font(Font.custom("Tangerine-Bold",size:70))
+                        .font(.title)
+  
+                }
+            }
+            .padding(.bottom,80)
+
+
         }
     }
 
