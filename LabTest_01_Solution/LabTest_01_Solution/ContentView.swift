@@ -50,6 +50,13 @@ struct ContentView: View {
             Image(isPrime(currentNumber)==true ?"check":"close")
                 .resizable()                
                 .frame(width:50,height:50)
+	    // Text to display result message - message produced at the end
+
+            Text(appEndMessage)
+                .font(.title)
+                .foregroundColor(appEndMessage == "✅ Correct" ? .green : .red)
+                .padding()
+
 
         }
     }
