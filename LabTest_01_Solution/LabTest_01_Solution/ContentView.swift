@@ -54,6 +54,16 @@ struct ContentView: View {
         }
     }
 
+    // function to check prime-ness of number
+    func isPrime(_ number: Int) -> Bool {
+        if number < 2 { return false }
+        for i in 2..<number {
+            if number % i == 0 { return false }
+        }
+        return true
+    }
+
+
 }
 
 #Preview {
