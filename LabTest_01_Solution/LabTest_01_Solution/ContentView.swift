@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var correctAnswers: Int = 0
     @State private var wrongAnswers: Int = 0
     @State private var attempts: Int = 0
-    @State private var resultMessage: String = ""
+    @State private var appEndMessage: String = ""
     @State private var showResults: Bool = false
     @State private var timer: Timer? = nil
     @State private var lastNumberTime: Date = Date()
@@ -68,10 +68,10 @@ struct ContentView: View {
         let correctAnswer = isPrime(currentNumber)
 
         if userAnswer == correctAnswer {
-            resultMessage = "✅ Correct"
+            appEndMessage = "✅ Correct"
             correctAnswers += 1
         } else {
-            resultMessage = "❌ Wrong"
+            appEndMessage = "❌ Wrong"
             wrongAnswers += 1
         }
 
@@ -91,7 +91,7 @@ struct ContentView: View {
     // Generate a new random number
     func generateNewNumber() {
         currentNumber = Int.random(in: 1...100)
-        resultMessage = "" 
+        appEndMessage = "" 
         lastNumberTime = Date()
     }
 
