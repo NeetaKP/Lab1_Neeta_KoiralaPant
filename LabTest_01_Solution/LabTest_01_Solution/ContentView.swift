@@ -116,7 +116,10 @@ struct ContentView: View {
 
     // Function to reset the app
     func resetApp() {
-
+	correctAnswers = 0
+	wrongAnswers = 0
+	attempts = 0
+	startTimer()
     }
 
 }
