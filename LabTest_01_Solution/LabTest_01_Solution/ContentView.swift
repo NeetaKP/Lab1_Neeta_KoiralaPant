@@ -47,6 +47,9 @@ struct ContentView: View {
             }
             .padding(.bottom,80)
 
+            Image(isPrime(currentNumber)==true ?"check":"close")
+                .resizable()                
+                .frame(width:50,height:50)
 
         }
     }
