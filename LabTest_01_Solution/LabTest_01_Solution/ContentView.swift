@@ -59,6 +59,17 @@ struct ContentView: View {
 
 
         }
+        .onAppear {
+            startTimer()
+        }
+        .alert("Final outcome", isPresented: $showResults) {
+            Button("OK", role: .cancel) {
+                resetApp()
+            }
+        } message: {
+            Text("Correct answers: \(correctAnswers)\nWrong answers: \(wrongAnswers)")
+        }
+
     }
 
     // function to check prime-ness of number
