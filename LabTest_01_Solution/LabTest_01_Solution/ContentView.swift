@@ -8,82 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var choosedWrongAnswerCount=0
-    @State private var attemptsCompleted=0
-    @State private var  summary = false
-    @State private var num = Int.random( in:1...100)
-    @State private var isAnswerCorrect: Bool? = nil
-    @State private  var choosedRightAnswerCount = 0
-    
-    
-    @ViewBuilder var body:some View{
-        
-        VStack{
-            Text("\(num)")
-                //.font(.system(size:89, weight:.bold))
-                .font(Font.custom("Tangerine-Bold", size:200))
-                .padding()
-                //Spacer()
-            Button(action:{buttonClicked(primeSelected:true) }){
-                Text("Prime")
-                    //.font(.system(size:40))
-                    .font(Font.custom("Tangerine-Bold", size:100))
-                    .padding(.bottom, 100)
-                
-            }
-            //Spacer()
-            //padding()
-            
-            Button(action:{buttonClicked(primeSelected:false) }){
-                Text("non Prime")
-                    //.font(.system(size:40))
-                    .font(Font.custom("Tangerine-Bold", size:100))
-                    .padding(.bottom,60)
-            }
+    @State private var currentNumber: Int = 0
+    @State private var correctAnswers: Int = 0
+    @State private var wrongAnswers: Int = 0
+    @State private var attempts: Int = 0
+    @State private var resultMessage: String = ""
+    @State private var showResults: Bool = false
+    @State private var timer: Timer? = nil
+    @State private var lastNumberTime: Date = Date()
+
+    var body: some View {
+        VStack {
+
+
+            Text("\(currentNumber)")
+                .font(Font.custom("Tangerine-Bold", size:130))
+                .padding(60)
+
         }
-        
     }
-    func buttonClicked(primeSelected:Bool){
-               let correctOptionChoosen  = isPrime(num)
-               if primeSelected == correctOptionChoosen{
-                   isAnswerCorrect = true
-                   choosedRightAnswerCount += 1
-                   
-                   
-               }else{
-                   isAnswerCorrect = false
-                   choosedWrongAnswerCount += 1
-               }
-               
-               updateAnswer()
-               
-    }
-   func updateAnswer(){
-               //        attemptsCompleted += 1
-               //        if attempts >= 10{
-               //            summary = true
-               //
-               //        }else{
-               //            nextNumber()
-               //        }
-               //
-               //
-               //
-   }
-           
-   func isPrime(_ n: Int) -> Bool {
-               if n < 2 {return false}
-               for i in 2..<n {
-                   if n % i == 0 {return false}
-               }
-               
-               return true
-   }
 
 }
-    
-             
-             
+
 #Preview {
     ContentView()
 }

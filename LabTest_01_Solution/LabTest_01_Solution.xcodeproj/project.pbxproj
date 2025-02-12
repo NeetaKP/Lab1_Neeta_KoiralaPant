@@ -61,8 +61,8 @@
 				95D512A52D58575100C7BD66 /* LabTest-01-Solution-Info.plist */,
 				95D5129E2D58565F00C7BD66 /* Font */,
 				95D512732D582A5C00C7BD66 /* LabTest_01_SolutionApp.swift */,
-				95D512752D582A5C00C7BD66 /* ContentView.swift */,
 				95D512772D582A5D00C7BD66 /* Assets.xcassets */,
+				95D512752D582A5C00C7BD66 /* ContentView.swift */,
 				95D512792D582A5D00C7BD66 /* Preview Content */,
 			);
 			path = LabTest_01_Solution;
