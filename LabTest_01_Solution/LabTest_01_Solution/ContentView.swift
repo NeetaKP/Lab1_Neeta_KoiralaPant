@@ -76,12 +76,12 @@ struct ContentView: View {
         }
 
         attempts += 1
-        checkEndGame()
+        checkEndApp()
         generateNewNumber()
     }
 
     // check attempts and limit
-    func checkEndGame() {
+    func checkEndApp() {
         if attempts >= 10 {
 		timer?.invalidate()
 		showResults = true
