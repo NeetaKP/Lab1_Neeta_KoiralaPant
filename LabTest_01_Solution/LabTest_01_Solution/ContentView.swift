@@ -122,6 +122,14 @@ struct ContentView: View {
 	startTimer()
     }
 
+    // function to store missed response (within 5 seconds) 
+    func recordMissedAnswer() {
+        wrongAnswers += 1
+        attempts += 1
+        checkEndApp()
+    }
+
+
 }
 
 #Preview {
