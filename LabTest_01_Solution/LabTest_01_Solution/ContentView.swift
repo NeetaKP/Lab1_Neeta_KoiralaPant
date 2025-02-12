@@ -80,6 +80,13 @@ struct ContentView: View {
         generateNewNumber()
     }
 
+    // check attempts and limit
+    func checkEndGame() {
+        if attempts >= 10 {
+		// to be completed
+        }
+    }
+
 
 }
 
