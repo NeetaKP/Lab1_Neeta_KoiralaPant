@@ -104,6 +104,16 @@ struct ContentView: View {
         generateNewNumber() // Generate the first number immediately
     }
 
+    // function to check response missed in 5 seconds period
+    func checkMissedAnswer(){
+        let timeSinceLastNumber = Date().timeIntervalSince(lastNumberTime)
+        if timeSinceLastNumber >= 5.0 {
+            wrongAnswers += 1
+            attempts += 1
+            checkEndApp()
+        }
+    }
+
 
 
 }
