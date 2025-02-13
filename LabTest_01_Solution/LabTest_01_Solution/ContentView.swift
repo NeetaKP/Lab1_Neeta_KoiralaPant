@@ -16,14 +16,17 @@ struct ContentView: View {
     @State private var showResults: Bool = false
     @State private var timer: Timer? = nil
     @State private var lastNumberTime: Date = Date()
+    @State private var flag: Bool = false
+    @State private var trueAnswer: Bool = false
 
     var body: some View {
         VStack {
 
 
             Text("\(currentNumber)")
-                .font(Font.custom("Tangerine-Bold", size:130))
-                .padding(60)
+                 .font(Font.custom("Tangerine-Bold", size:100))
+                .padding(40)
+                .padding([.leading, .trailing],80)
 
             VStack {
                 Button(action: {
@@ -44,32 +47,57 @@ struct ContentView: View {
                         .font(.title)
   
                 }
+ 
             }
             .padding(.bottom,80)
 
-            Image(isPrime(currentNumber)==true ?"check":"close")
-                .resizable()                
+            Image(trueAnswer==true && flag==true ?"check":"close")
+                .resizable()
                 .frame(width:50,height:50)
-	    // Text to display result message - message produced at the end
 
+            // Text to display result message - message produced at the end
             Text(appEndMessage)
                 .font(.title)
-                .foregroundColor(appEndMessage == "✅ Correct" ? .green : .red)
+                .foregroundColor(appEndMessage == "Correct" ? .green : .red)
                 .padding()
 
-
+            Spacer()
         }
+        .padding()
         .onAppear {
             startTimer()
         }
-        .alert("Final outcome", isPresented: $showResults) {
+        .alert("Final Outcome", isPresented: $showResults) {
             Button("OK", role: .cancel) {
                 resetApp()
             }
-        } message: {
+       } message: {
             Text("Correct answers: \(correctAnswers)\nWrong answers: \(wrongAnswers)")
         }
+ 
+    }
+    
+    func setFlag() {
+        flag = true
+    }
+    func resetFlag() {
+        flag  = false
+    }
 
+    // timer-start function - updates number every 5 seconds
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
+            checkMissedAnswer()
+            generateNewNumber()
+        }
+        generateNewNumber() // Generate the first number immediately
+    }
+
+    // Generate a new random number
+    func generateNewNumber() {
+        currentNumber = Int.random(in: 1...100)
+        appEndMessage = "" 
+        lastNumberTime = Date()
     }
 
     // function to check prime-ness of number
@@ -84,13 +112,16 @@ struct ContentView: View {
     // function to check user's answer/response and update data
     func checkAnswer(isPrime userAnswer: Bool) {
         let correctAnswer = isPrime(currentNumber)
-
-        if userAnswer == correctAnswer {
-            appEndMessage = "✅ Correct"
+        setFlag()
+        if userAnswer == correctAnswer{
+            appEndMessage = "Correct"
             correctAnswers += 1
+            trueAnswer = true
         } else {
-            appEndMessage = "❌ Wrong"
+            appEndMessage = "Wrong"
             wrongAnswers += 1
+            resetFlag()
+            trueAnswer = false
         }
 
         attempts += 1
@@ -98,58 +129,37 @@ struct ContentView: View {
         generateNewNumber()
     }
 
-    // check attempts and limit
-    func checkEndApp() {
-        if attempts >= 10 {
-		timer?.invalidate()
-		showResults = true
-        }
-    }
-
-    // Generate a new random number
-    func generateNewNumber() {
-        currentNumber = Int.random(in: 1...100)
-        appEndMessage = "" 
-        lastNumberTime = Date()
-    }
-
-    // timer-start function - updates number every 5 seconds
-    func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-            checkMissedAnswer()
-            generateNewNumber()
-        }
-        generateNewNumber() // Generate the first number immediately
-    }
-
     // function to check response missed in 5 seconds period
     func checkMissedAnswer(){
         let timeSinceLastNumber = Date().timeIntervalSince(lastNumberTime)
-        if timeSinceLastNumber >= 5.0 {
+        if timeSinceLastNumber >= 4.9 {
             wrongAnswers += 1
             attempts += 1
             checkEndApp()
         }
     }
 
+    // check attempts and limit
+    func checkEndApp() {
+        if attempts >= 10 {
+            timer?.invalidate()
+            showResults = true
+        }
+    }
+
     // Function to reset the app
     func resetApp() {
-	correctAnswers = 0
-	wrongAnswers = 0
-	attempts = 0
-	startTimer()
+        correctAnswers = 0
+        wrongAnswers = 0
+        attempts = 0
+        resetFlag()
+        trueAnswer = false
+        
+        startTimer()
     }
-
-    // function to store missed response (within 5 seconds) 
-    func recordMissedAnswer() {
-        wrongAnswers += 1
-        attempts += 1
-        checkEndApp()
-    }
-
-
 }
 
+        
 #Preview {
     ContentView()
 }
